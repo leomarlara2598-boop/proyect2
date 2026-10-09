@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Panel de Control | CDI Los Mangos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand-local">
+        <img src="imagenes/logo.jpeg" alt="Logo CDI Los Mangos" class="logo-local">
+        <div><b>Los Mangos</b><small>Centro de Documentación e Investigación</small></div>
+      </div>
+      <nav class="menu-local">
+        <div class="menu-title">Principal</div>
+        <a href="index.html" class="active"><img src="iconos/home2.svg" alt="">Inicio</a>
+        <a href="libros.html"><img src="iconos/book2.svg" alt="">Libros</a>
+        <a href="prestamos.html"><img src="iconos/refresh2.svg" alt="">Préstamos</a>
+        <a href="lectores.html"><img src="iconos/user-circle2.svg" alt="">Lectores</a>
+        <a href="donaciones.html"><img src="iconos/donate.svg" alt="">Entradas</a>
+        <a href="inventario.html"><img src="iconos/book-library.svg" alt="">Bienes e insumos</a>
+        <a href="actividades.html"><img src="iconos/calendar-alt.svg" alt="">Actividades</a>
+        <a href="reportes.html"><img src="iconos/calendar-month.svg" alt="">Reportes</a>
+        <a href="usuarios.html"><img src="iconos/users2.svg" alt="">Usuarios</a>
+
+        <div class="menu-title">Cuenta</div>
+        <a href="perfil.html"><img src="iconos/user.svg" alt="">Mi perfil</a>
+        <a href="login.html"><img src="iconos/logout.svg" alt="">Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Panel de Control</h1>
+          <p>Sistema de Gestión Integral</p>
+        </div>
+        <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
+        </div>
+      </header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Panel de Control Principal</h2>
+            <p>Resumen general y accesos rápidos.</p>
+          </div>
+        </div>
+        <div class="grid-stats">
+          <div class="stat"><span class="stat-icon">▣</span>
+            <div><small>Libros registrados</small><strong>1,450</strong><em>+12 este mes</em></div>
+          </div>
+          <div class="stat"><span class="stat-icon">↔</span>
+            <div><small>Préstamos activos</small><strong>36</strong><em>8 por vencer</em></div>
+          </div>
+          <div class="stat"><span class="stat-icon">♙</span>
+            <div><small>Lectores</small><strong>420</strong><em>+24 este mes</em></div>
+          </div>
+          <div class="stat"><span class="stat-icon">▤</span>
+            <div><small>Donaciones</small><strong>86</strong><em>+6 este mes</em></div>
+          </div>
+        </div>
+        <h3 style="margin:25px 0 12px">Acciones frecuentes</h3>
+        <div class="quick"><a href="libro-form.html">+ Registrar libro</a><a href="prestamo-form.html">↔ Procesar
+            préstamo</a><a href="devolucion-form.html">↩ Procesar devolución</a><a href="lector-form.html">+ Registrar
+            lector</a></div>
+        <div class="grid-2" style="margin-top:20px">
+          <div class="card">
+            <div class="card-head">
+              <h3>Préstamos recientes</h3><a href="prestamos.html">Ver todos</a>
+            </div>
+            <table>
+              <tr>
+                <th>Lector</th>
+                <th>Libro</th>
+                <th>Estado</th>
+              </tr>
+              <tr>
+                <td>María López</td>
+                <td>Introducción a la Informática</td>
+                <td><span class="badge green">Activo</span></td>
+              </tr>
+              <tr>
+                <td>Carlos Pérez</td>
+                <td>Historia Contemporánea</td>
+                <td><span class="badge yellow">Por vencer</span></td>
+              </tr>
+              <tr>
+                <td>Ana Gómez</td>
+                <td>Metodología de Investigación</td>
+                <td><span class="badge green">Activo</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Alertas</h3>
+            <div class="alert">3 préstamos están próximos a vencer.</div>
+            <div class="alert">2 artículos tienen stock crítico.</div>
+            <div class="timeline">
+              <div><b>Taller de lectura</b><small>05/10/2026 · 10:00 AM</small></div>
+              <div><b>Charla comunitaria</b><small>12/10/2026 · 02:00 PM</small></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">© 2026 Centro de Documentación e Investigación “Los Mangos” - Biblioteca Maestro Alfredo
+        Alvino | UPTP Informática Carúpano</footer>
+    </div>
+  </div>
+</body>
+
+</html>

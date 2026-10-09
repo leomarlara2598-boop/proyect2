@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Inventario de bienes e insumos | CDI Los Mangos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand-local">
+        <img src="imagenes/logo.jpeg" alt="Logo CDI Los Mangos" class="logo-local">
+        <div><b>Los Mangos</b><small>Centro de Documentación e Investigación</small></div>
+      </div>
+      <nav class="menu-local">
+        <div class="menu-title">Principal</div>
+        <a href="index.html"><img src="iconos/home2.svg" alt="">Inicio</a>
+        <a href="libros.html"><img src="iconos/book2.svg" alt="">Libros</a>
+        <a href="prestamos.html"><img src="iconos/refresh2.svg" alt="">Préstamos</a>
+        <a href="lectores.html"><img src="iconos/user-circle2.svg" alt="">Lectores</a>
+        <a href="donaciones.html"><img src="iconos/donate.svg" alt="">Entradas</a>
+        <a href="inventario.html" class="active"><img src="iconos/book-library.svg" alt="">Bienes e insumos</a>
+        <a href="actividades.html"><img src="iconos/calendar-alt.svg" alt="">Actividades</a>
+        <a href="reportes.html"><img src="iconos/calendar-month.svg" alt="">Reportes</a>
+        <a href="usuarios.html"><img src="iconos/users2.svg" alt="">Usuarios</a>
+
+        <div class="menu-title">Cuenta</div>
+        <a href="perfil.html"><img src="iconos/user.svg" alt="">Mi perfil</a>
+        <a href="login.html"><img src="iconos/logout.svg" alt="">Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Inventario de bienes e insumos</h1>
+          <p>Sistema de Gestión Integral</p>
+        </div>
+        <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
+        </div>
+      </header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Inventario de bienes e insumos</h2>
+            <p>Consultar inventario de bienes e insumos.</p>
+          </div><a class="btn btn-primary" href="bien-form.html">+ Registrar bien / insumo</a>
+        </div>
+        <div class="grid-stats">
+          <div class="stat">
+            <div><small>Total de bienes</small><strong>340</strong></div>
+          </div>
+          <div class="stat">
+            <div><small>Disponibles</small><strong>312</strong></div>
+          </div>
+          <div class="stat">
+            <div><small>Requieren atención</small><strong>28</strong></div>
+          </div>
+          <div class="stat">
+            <div><small>Movimientos</small><strong>96</strong></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="filters"><label>Buscar<input placeholder="Código o nombre"></label><label>Categoría<select>
+                <option>Todas</option>
+                <option>Equipo</option>
+                <option>Mobiliario</option>
+                <option>Insumo</option>
+              </select></label><button class="btn btn-primary">
+              <img src="iconos/search.svg" alt="Lupa" class="icon-btn"></button></div>
+        </div>
+        <div class="card">
+          <table>
+            <tr>
+              <th>Código</th>
+              <th>Bien / insumo</th>
+              <th>Categoría</th>
+              <th>Cantidad</th>
+              <th>Ubicación</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+            <tr>
+              <td>INV-001</td>
+              <td>Computadora de escritorio</td>
+              <td>Equipo</td>
+              <td>12</td>
+              <td>Sala informática</td>
+              <td><span class="badge green">Bueno</span></td>
+              <td><a href="bien-form.html">Editar</a></td>
+            </tr>
+            <tr>
+              <td>INV-002</td>
+              <td>Resmas de papel</td>
+              <td>Insumo</td>
+              <td>45</td>
+              <td>Almacén</td>
+              <td><span class="badge green">Disponible</span></td>
+              <td><a href="bien-form.html">Editar</a></td>
+            </tr>
+          </table>
+        </div>
+      </main>
+      <footer class="footer">© 2026 Centro de Documentación e Investigación “Los Mangos” - Biblioteca Maestro Alfredo
+        Alvino | UPTP Informática Carúpano</footer>
+    </div>
+  </div>
+</body>
+
+</html>

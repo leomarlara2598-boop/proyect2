@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Libros | CDI Los Mangos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand-local">
+        <img src="imagenes/logo.jpeg" alt="Logo CDI Los Mangos" class="logo-local">
+        <div><b>Los Mangos</b><small>Centro de Documentación e Investigación</small></div>
+      </div>
+      <nav class="menu-local">
+        <div class="menu-title">Principal</div>
+        <a href="index.html"><img src="iconos/home2.svg" alt="">Inicio</a>
+        <a href="libros.html" class="active"><img src="iconos/book2.svg" alt="">Libros</a>
+        <a href="prestamos.html"><img src="iconos/refresh2.svg" alt="">Préstamos</a>
+        <a href="lectores.html"><img src="iconos/user-circle2.svg" alt="">Lectores</a>
+        <a href="donaciones.html"><img src="iconos/donate.svg" alt="">Entradas</a>
+        <a href="inventario.html"><img src="iconos/book-library.svg" alt="">Bienes e insumos</a>
+        <a href="actividades.html"><img src="iconos/calendar-alt.svg" alt="">Actividades</a>
+        <a href="reportes.html"><img src="iconos/calendar-month.svg" alt="">Reportes</a>
+        <a href="usuarios.html"><img src="iconos/users2.svg" alt="">Usuarios</a>
+
+        <div class="menu-title">Cuenta</div>
+        <a href="perfil.html"><img src="iconos/user.svg" alt="">Mi perfil</a>
+        <a href="login.html"><img src="iconos/logout.svg" alt="">Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Libros</h1>
+          <p>Sistema de Gestión Integral</p>
+        </div>
+        <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
+        </div>
+      </header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Libros</h2>
+            <p>Consultar el inventario bibliográfico, registrar, modificar y habilitar/inhabilitar libros.</p>
+          </div><a class="btn btn-primary" href="libro-form.html">+ Registrar libro</a>
+        </div>
+        <div class="card">
+          <div class="filters"><label>Buscar<input
+                placeholder="Título, autor, código o ISBN"></label><label>Categoría<select>
+                <option>Todas</option>
+                <option>Informática</option>
+                <option>Historia</option>
+                <option>Literatura</option>
+              </select></label><label>Estado<select>
+                <option>Todos</option>
+                <option>Disponible</option>
+                <option>Prestado</option>
+                <option>Inhabilitado</option>
+              </select></label><button class="btn btn-primary">
+              <img src="iconos/search.svg" alt="Lupa" class="icon-btn"></button></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3>Listado de libros</h3><span class="badge blue">1,450 registros</span>
+          </div>
+          <table>
+            <tr>
+              <th>Código</th>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Categoría</th>
+              <th>Ejemplares</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+            <tr>
+              <td>LIB-001</td>
+              <td>Introducción a la Informática</td>
+              <td>J. Pérez</td>
+              <td>Informática</td>
+              <td>4/5</td>
+              <td><span class="badge green">Habilitado</span></td>
+              <td><a href="libro-detalle.html">Consultar</a> · <a href="libro-form.html">Modificar</a></td>
+            </tr>
+            <tr>
+              <td>LIB-002</td>
+              <td>Metodología de Investigación</td>
+              <td>M. Arias</td>
+              <td>Investigación</td>
+              <td>2/3</td>
+              <td><span class="badge green">Habilitado</span></td>
+              <td><a href="libro-detalle.html">Consultar</a> · <a href="libro-form.html">Modificar</a></td>
+            </tr>
+            <tr>
+              <td>LIB-003</td>
+              <td>Historia Contemporánea</td>
+              <td>L. Gómez</td>
+              <td>Historia</td>
+              <td>0/2</td>
+              <td><span class="badge red">Inhabilitado</span></td>
+              <td><a href="libro-detalle.html">Consultar</a> · <a href="libro-form.html">Modificar</a></td>
+            </tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Habilitar / inhabilitar inventario</h3>
+          <p style="font-size:12px;color:#71808a">Desde el listado, el administrador/bibliotecario puede cambiar el
+            estado del libro. En un backend real esta acción deberá pedir confirmación y registrar quién hizo el cambio.
+          </p><button class="btn btn-danger">Inhabilitar libro seleccionado</button>
+        </div>
+      </main>
+      <footer class="footer">© 2026 Centro de Documentación e Investigación “Los Mangos” - Biblioteca Maestro Alfredo
+        Alvino | UPTP Informática Carúpano</footer>
+    </div>
+  </div>
+</body>
+
+</html>

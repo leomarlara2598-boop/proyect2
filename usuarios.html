@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Usuarios del sistema | CDI Los Mangos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand-local">
+        <img src="imagenes/logo.jpeg" alt="Logo CDI Los Mangos" class="logo-local">
+        <div><b>Los Mangos</b><small>Centro de Documentación e Investigación</small></div>
+      </div>
+      <nav class="menu-local">
+        <div class="menu-title">Principal</div>
+        <a href="index.html"><img src="iconos/home2.svg" alt="">Inicio</a>
+        <a href="libros.html"><img src="iconos/book2.svg" alt="">Libros</a>
+        <a href="prestamos.html"><img src="iconos/refresh2.svg" alt="">Préstamos</a>
+        <a href="lectores.html"><img src="iconos/user-circle2.svg" alt="">Lectores</a>
+        <a href="donaciones.html"><img src="iconos/donate.svg" alt="">Entradas</a>
+        <a href="inventario.html"><img src="iconos/book-library.svg" alt="">Bienes e insumos</a>
+        <a href="actividades.html"><img src="iconos/calendar-alt.svg" alt="">Actividades</a>
+        <a href="reportes.html"><img src="iconos/calendar-month.svg" alt="">Reportes</a>
+        <a href="usuarios.html" class="active"><img src="iconos/users2.svg" alt="">Usuarios</a>
+
+        <div class="menu-title">Cuenta</div>
+        <a href="perfil.html"><img src="iconos/user.svg" alt="">Mi perfil</a>
+        <a href="login.html"><img src="iconos/logout.svg" alt="">Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Usuarios del sistema</h1>
+          <p>Sistema de Gestión Integral</p>
+        </div>
+        <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
+        </div>
+      </header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Usuarios del sistema</h2>
+            <p>Listar, añadir, editar y habilitar/inhabilitar usuarios.</p>
+          </div><a class="btn btn-primary" href="usuario-form.html">+ Añadir usuario</a>
+        </div>
+        <div class="card">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>Rol</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+            <tr>
+              <td>USR-001</td>
+              <td>Leomar Lara</td>
+              <td>admin</td>
+              <td>Administrador</td>
+              <td><span class="badge green">Habilitado</span></td>
+              <td><a href="usuario-form.html">Editar</a></td>
+            </tr>
+            <tr>
+              <td>USR-002</td>
+              <td>Pedro Díaz</td>
+              <td>bibliotecario</td>
+              <td>Bibliotecario</td>
+              <td><span class="badge green">Habilitado</span></td>
+              <td><a href="usuario-form.html">Editar</a></td>
+            </tr>
+            <tr>
+              <td>USR-003</td>
+              <td>Laura Gómez</td>
+              <td>consulta</td>
+              <td>Usuario de consultas</td>
+              <td><span class="badge red">Inhabilitado</span></td>
+              <td><a href="usuario-form.html">Editar</a></td>
+            </tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Roles definidos en el diagrama</h3>
+          <div class="grid-3">
+            <div><b>Usuario de consultas</b>
+              <p style="font-size:11px;color:#71808a">Consultar inventario, listar libros y consultar préstamos.</p>
+            </div>
+            <div><b>Bibliotecario</b>
+              <p style="font-size:11px;color:#71808a">Libros, préstamos, devoluciones, lectores y donaciones.</p>
+            </div>
+            <div><b>Administrador</b>
+              <p style="font-size:11px;color:#71808a">Inventario de bienes, actividades, reportes y usuarios.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">© 2026 Centro de Documentación e Investigación “Los Mangos” - Biblioteca Maestro Alfredo
+        Alvino | UPTP Informática Carúpano</footer>
+    </div>
+  </div>
+</body>
+
+</html>
