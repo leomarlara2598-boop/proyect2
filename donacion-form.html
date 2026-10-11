@@ -4,70 +4,766 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Registrar / editar donación | CDI Los Mangos</title>
+  <title>Registrar / editar entrada | CDI Los Mangos</title>
   <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    /* Estilos propios del formulario de entradas */
+
+    .entrada-seccion {
+      margin-bottom: 22px;
+    }
+
+    .entrada-seccion h3 {
+      margin-top: 0;
+      margin-bottom: 7px;
+    }
+
+    .entrada-ayuda {
+      color: #6b6680;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .entrada-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .entrada-cabecera p {
+      color: #6b6680;
+      font-size: 13px;
+      margin: 5px 0 0;
+    }
+
+    .articulo-entrada {
+      border: 1px solid #dfcce9;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .articulo-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      background: #f7f0fa;
+      border-bottom: 1px solid #dfcce9;
+    }
+
+    .articulo-cabecera strong {
+      color: #65178e;
+    }
+
+    .articulo-contenido {
+      padding: 16px;
+    }
+
+    .articulo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .articulo-grid label {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-width: 0;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .articulo-grid input,
+    .articulo-grid select {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .articulo-grid .ancho-doble {
+      grid-column: span 2;
+    }
+
+    .articulo-grid .ancho-completo {
+      grid-column: 1 / -1;
+    }
+
+    .subtotal-articulo {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 7px;
+      background: #f7f0fa;
+      font-weight: 700;
+    }
+
+    .subtotal-articulo strong {
+      color: #65178e;
+    }
+
+    .btn-agregar-articulo {
+      padding: 10px 14px;
+      border: 1px solid #d8c0e6;
+      border-radius: 7px;
+      background: #f7f0fa;
+      color: #65178e;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-agregar-articulo:hover {
+      background: #eee0f6;
+    }
+
+    .btn-eliminar-articulo {
+      padding: 8px 11px;
+      border: 1px solid #efc5c2;
+      border-radius: 7px;
+      background: #fff1f0;
+      color: #b42318;
+      cursor: pointer;
+    }
+
+    .btn-eliminar-articulo:hover {
+      background: #ffe2df;
+    }
+
+    .resumen-entrada {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .resumen-entrada>div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 15px;
+      background: #faf6fc;
+      border: 1px solid #eadff0;
+      border-radius: 9px;
+    }
+
+    .resumen-entrada span {
+      color: #6b6680;
+      font-size: 12px;
+    }
+
+    .resumen-entrada strong {
+      font-size: 19px;
+      color: #65178e;
+      overflow-wrap: anywhere;
+    }
+
+    .observaciones-entrada {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .observaciones-entrada textarea {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .entrada-mensaje {
+      display: none;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #eaf7ef;
+      color: #176b43;
+      line-height: 1.5;
+    }
+
+    .entrada-mensaje.visible {
+      display: block;
+    }
+
+    .acciones-entrada {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .articulo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+
+      .articulo-grid,
+      .resumen-entrada {
+        grid-template-columns: 1fr;
+      }
+
+      .articulo-grid .ancho-doble,
+      .articulo-grid .ancho-completo {
+        grid-column: auto;
+      }
+
+      .articulo-contenido {
+        padding: 12px;
+      }
+
+      .articulo-cabecera {
+        align-items: flex-start;
+      }
+
+      .acciones-entrada .btn {
+        flex: 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="layout">
+
+    <!-- MENÚ LATERAL ORIGINAL -->
     <aside class="sidebar">
+
       <div class="brand-local">
         <img src="imagenes/logo.jpeg" alt="Logo CDI Los Mangos" class="logo-local">
-        <div><b>Los Mangos</b><small>Centro de Documentación e Investigación</small></div>
+
+        <div>
+          <b>Los Mangos</b>
+          <small>Centro de Documentación e Investigación</small>
+        </div>
       </div>
+
       <nav class="menu-local">
+
         <div class="menu-title">Principal</div>
-        <a href="index.html"><img src="iconos/home2.svg" alt="">Inicio</a>
-        <a href="libros.html"><img src="iconos/book2.svg" alt="">Libros</a>
-        <a href="prestamos.html"><img src="iconos/refresh2.svg" alt="">Préstamos</a>
-        <a href="lectores.html"><img src="iconos/user-circle2.svg" alt="">Lectores</a>
-        <a href="donaciones.html" class="active"><img src="iconos/donate.svg" alt="">Entradas</a>
-        <a href="inventario.html"><img src="iconos/book-library.svg" alt="">Bienes e insumos</a>
-        <a href="actividades.html"><img src="iconos/calendar-alt.svg" alt="">Actividades</a>
-        <a href="reportes.html"><img src="iconos/calendar-month.svg" alt="">Reportes</a>
-        <a href="usuarios.html"><img src="iconos/users2.svg" alt="">Usuarios</a>
+
+        <a href="index.html">
+          <img src="iconos/home2.svg" alt="">Inicio
+        </a>
+
+        <a href="libros.html">
+          <img src="iconos/book2.svg" alt="">Libros
+        </a>
+
+        <a href="prestamos.html">
+          <img src="iconos/refresh2.svg" alt="">Préstamos
+        </a>
+
+        <a href="lectores.html">
+          <img src="iconos/user-circle2.svg" alt="">Lectores
+        </a>
+
+        <a href="donaciones.html" class="active">
+          <img src="iconos/donate.svg" alt="">Entradas
+        </a>
+
+        <a href="inventario.html">
+          <img src="iconos/book-library.svg" alt="">Bienes e insumos
+        </a>
+
+        <a href="actividades.html">
+          <img src="iconos/calendar-alt.svg" alt="">Actividades
+        </a>
+
+        <a href="reportes.html">
+          <img src="iconos/calendar-month.svg" alt="">Reportes
+        </a>
+
+        <a href="usuarios.html">
+          <img src="iconos/users2.svg" alt="">Usuarios
+        </a>
 
         <div class="menu-title">Cuenta</div>
-        <a href="perfil.html"><img src="iconos/user.svg" alt="">Mi perfil</a>
-        <a href="login.html"><img src="iconos/logout.svg" alt="">Cerrar sesión</a>
+
+        <a href="perfil.html">
+          <img src="iconos/user.svg" alt="">Mi perfil
+        </a>
+
+        <a href="login.html">
+          <img src="iconos/logout.svg" alt="">Cerrar sesión
+        </a>
+
       </nav>
     </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main">
+
       <header class="topbar">
         <div>
-          <h1>Registrar / editar donación</h1>
-          <p>Sistema de Gestión Integral</p>
+          <h1>Registrar / editar entrada</h1>
+          <p>Sistema de Gestión de Entradas</p>
         </div>
-        <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
+
+        <div class="userbox">
+          <span class="avatar">AL</span>
+          <span>
+            <b>Leomar Lara</b>
+            <small>Administrador</small>
+          </span>
         </div>
       </header>
+
       <main class="content">
+
         <div class="page-head">
           <div>
-            <h2>Registrar / editar donación</h2>
-            <p>Cubre los casos de registrar y editar donaciones.</p>
-          </div><a class="btn btn-secondary" href="donaciones.html">← Volver</a>
-        </div>
-        <div class="card">
-          <div class="form-grid"><label>Código<input placeholder="DON-003"></label><label>Donante<input
-                placeholder="Nombre del donante"></label><label>Fecha<input type="date"
-                value="2026-09-29"></label><label>Tipo<select>
-                <option>Libros</option>
-                <option>Bienes</option>
-                <option>Insumos</option>
-                <option>Equipos</option>
-              </select></label><label>Cantidad<input type="number" placeholder="1"></label><label>Valor estimado<input
-                type="number" placeholder="0.00"></label><label
-              class="span-2">Descripción<textarea></textarea></label><label
-              class="span-2">Observaciones<textarea></textarea></label>
-            <div class="actions span-2"><a class="btn btn-primary" href="donaciones.html">Guardar donación</a></div>
+            <h2>Registrar / editar entrada</h2>
+            <p>
+              Registra una donación, compra u otro ingreso
+              con todos sus artículos.
+            </p>
           </div>
+
+          <a class="btn btn-secondary" href="donaciones.html">
+            ← Volver
+          </a>
         </div>
+
+        <div id="mensajeEntrada" class="entrada-mensaje" role="status"></div>
+
+        <form id="formEntrada">
+
+          <!-- DATOS GENERALES -->
+          <section class="card entrada-seccion">
+
+            <h3>Datos generales</h3>
+
+            <p class="entrada-ayuda">
+              Estos datos corresponden a toda la entrada,
+              aunque incluya diferentes tipos de artículos.
+            </p>
+
+            <div class="form-grid">
+
+              <label>
+                Código de entrada
+                <input type="text" id="codigo" name="codigo" placeholder="ENT-004" required>
+              </label>
+
+              <label>
+                Fecha
+                <input type="date" id="fecha" name="fecha" required>
+              </label>
+
+              <label>
+                Tipo de entrada
+                <select id="tipoEntrada" name="tipoEntrada" required>
+                  <option value="Donación">Donación</option>
+                  <option value="Compra">Compra</option>
+                  <option value="Transferencia">
+                    Transferencia o traslado
+                  </option>
+                  <option value="Devolución">
+                    Devolución o reintegro
+                  </option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </label>
+
+              <label>
+                <span id="textoProcedencia">
+                  Donante / procedencia
+                </span>
+
+                <input type="text" id="procedencia" name="procedencia" placeholder="Nombre de la persona o institución"
+                  required>
+              </label>
+
+              <label>
+                Número de factura o comprobante
+                <input type="text" id="comprobante" name="comprobante" placeholder="Opcional">
+              </label>
+
+              <label>
+                Recibido por
+                <input type="text" id="responsable" name="responsable" placeholder="Nombre del responsable">
+              </label>
+
+            </div>
+          </section>
+
+          <!-- ARTÍCULOS DE LA ENTRADA -->
+          <section class="card entrada-seccion">
+
+            <div class="entrada-cabecera">
+              <div>
+                <h3>Artículos recibidos</h3>
+                <p>
+                  Puedes incluir libros, insumos, bienes,
+                  mobiliario y otros artículos en la misma entrada.
+                </p>
+              </div>
+
+              <button type="button" class="btn-agregar-articulo" id="agregarArticulo">
+                + Agregar artículo
+              </button>
+            </div>
+
+            <div id="listaArticulos"></div>
+
+            <!-- RESUMEN AUTOMÁTICO -->
+            <div class="resumen-entrada">
+
+              <div>
+                <span>Artículos registrados</span>
+                <strong id="totalArticulos">1</strong>
+              </div>
+
+              <div>
+                <span>Unidades totales</span>
+                <strong id="totalUnidades">1</strong>
+              </div>
+
+              <div>
+                <span>Valor estimado total</span>
+                <strong id="valorTotal">0,00</strong>
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- OBSERVACIONES -->
+          <section class="card entrada-seccion">
+
+            <h3>Observaciones generales</h3>
+
+            <p class="entrada-ayuda">
+              Añade notas que correspondan a toda la recepción.
+            </p>
+
+            <label class="observaciones-entrada">
+              Observaciones
+              <textarea id="observaciones" name="observaciones"
+                placeholder="Detalles adicionales de la recepción..."></textarea>
+            </label>
+
+          </section>
+
+          <!-- BOTONES -->
+          <div class="acciones-entrada">
+
+            <button type="reset" class="btn btn-secondary">
+              Limpiar formulario
+            </button>
+
+            <button type="submit" class="btn btn-primary">
+              Guardar entrada
+            </button>
+
+          </div>
+
+        </form>
       </main>
-      <footer class="footer">© 2026 Centro de Documentación e Investigación “Los Mangos” - Biblioteca Maestro Alfredo
-        Alvino | UPTP Informática Carúpano</footer>
+
+      <footer class="footer">
+        © 2026 Centro de Documentación e Investigación
+        “Los Mangos” - Biblioteca Maestro Alfredo Alvino |
+        UPTP Informática Carúpano
+      </footer>
+
     </div>
   </div>
+
+  <!-- PLANTILLA DE CADA ARTÍCULO -->
+  <template id="plantillaArticulo">
+
+    <article class="articulo-entrada">
+
+      <div class="articulo-cabecera">
+
+        <strong class="numeroArticulo">Artículo 1</strong>
+
+        <button type="button" class="btn-eliminar-articulo">
+          Eliminar artículo
+        </button>
+
+      </div>
+
+      <div class="articulo-contenido">
+
+        <div class="articulo-grid">
+
+          <label>
+            Clasificación
+
+            <select class="clasificacion" required>
+              <option value="Libros">
+                Libros y material bibliográfico
+              </option>
+
+              <option value="Insumos">
+                Insumos y materiales de oficina
+              </option>
+
+              <option value="Bienes">
+                Bienes y equipos
+              </option>
+
+              <option value="Mobiliario">
+                Mobiliario
+              </option>
+
+              <option value="Otros">Otros</option>
+            </select>
+          </label>
+
+          <label>
+            Nombre del artículo
+
+            <input type="text" class="nombreArticulo" placeholder="Ej.: Libro, resma de papel, impresora" required>
+          </label>
+
+          <label>
+            Cantidad
+
+            <input type="number" class="cantidad" min="0.01" step="0.01" value="1" required>
+          </label>
+
+          <label>
+            Unidad de medida
+
+            <select class="unidad">
+              <option>Unidad</option>
+              <option>Ejemplar</option>
+              <option>Paquete</option>
+              <option>Caja</option>
+              <option>Resma</option>
+              <option>Juego</option>
+              <option>Litro</option>
+              <option>Kilogramo</option>
+              <option>Otro</option>
+            </select>
+          </label>
+
+          <label class="ancho-doble">
+            Descripción / especificaciones
+
+            <input type="text" class="descripcionArticulo" placeholder="Título, autor, marca, modelo, estado...">
+          </label>
+
+          <label>
+            Valor unitario estimado
+
+            <input type="number" class="valorUnitario" min="0" step="0.01" value="0">
+          </label>
+
+          <label>
+            Ubicación asignada
+
+            <input type="text" class="ubicacion" placeholder="Ej.: Estante A, depósito">
+          </label>
+
+        </div>
+
+        <div class="subtotal-articulo">
+          <span>Subtotal estimado</span>
+          <strong class="subtotal">0,00</strong>
+        </div>
+
+      </div>
+    </article>
+
+  </template>
+
+  <!-- FUNCIONALIDAD -->
+  <script>
+    (() => {
+      const lista = document.getElementById("listaArticulos");
+      const plantilla = document.getElementById("plantillaArticulo");
+      const formulario = document.getElementById("formEntrada");
+      const mensaje = document.getElementById("mensajeEntrada");
+
+      function formatoNumero(valor) {
+        return new Intl.NumberFormat("es-VE", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }).format(valor);
+      }
+
+      function agregarArticulo() {
+        const fragmento = plantilla.content.cloneNode(true);
+        const articulo = fragmento.querySelector(".articulo-entrada");
+
+        articulo.querySelector(".btn-eliminar-articulo")
+          .addEventListener("click", () => {
+
+            if (lista.children.length <= 1) {
+              mostrarMensaje(
+                "Debe existir al menos un artículo.",
+                false
+              );
+              return;
+            }
+
+            articulo.remove();
+            actualizarResumen();
+          });
+
+        articulo.querySelectorAll("input, select")
+          .forEach(campo => {
+            campo.addEventListener("input", actualizarResumen);
+            campo.addEventListener("change", actualizarResumen);
+          });
+
+        lista.appendChild(fragmento);
+        actualizarResumen();
+      }
+
+      function actualizarResumen() {
+        let unidades = 0;
+        let total = 0;
+
+        [...lista.children].forEach((articulo, indice) => {
+          articulo.querySelector(".numeroArticulo").textContent =
+            "Artículo " + (indice + 1);
+
+          const cantidad =
+            Number(articulo.querySelector(".cantidad").value) || 0;
+
+          const valor =
+            Number(articulo.querySelector(".valorUnitario").value) || 0;
+
+          const subtotal = cantidad * valor;
+
+          unidades += cantidad;
+          total += subtotal;
+
+          articulo.querySelector(".subtotal").textContent =
+            formatoNumero(subtotal);
+        });
+
+        document.getElementById("totalArticulos").textContent =
+          lista.children.length;
+
+        document.getElementById("totalUnidades").textContent =
+          formatoNumero(unidades);
+
+        document.getElementById("valorTotal").textContent =
+          formatoNumero(total);
+      }
+
+      function mostrarMensaje(texto, correcto = true) {
+        mensaje.textContent = texto;
+        mensaje.style.background =
+          correcto ? "#eaf7ef" : "#fff1f0";
+        mensaje.style.color =
+          correcto ? "#176b43" : "#b42318";
+        mensaje.classList.add("visible");
+      }
+
+      document.getElementById("agregarArticulo")
+        .addEventListener("click", agregarArticulo);
+
+      document.getElementById("tipoEntrada")
+        .addEventListener("change", function () {
+
+          const etiquetas = {
+            "Donación": "Donante / procedencia",
+            "Compra": "Proveedor",
+            "Transferencia": "Institución de origen",
+            "Devolución": "Procedencia / responsable",
+            "Otro": "Procedencia"
+          };
+
+          document.getElementById("textoProcedencia").textContent =
+            etiquetas[this.value] || "Procedencia";
+
+          document.getElementById("procedencia").placeholder =
+            this.value === "Compra"
+              ? "Nombre del proveedor"
+              : "Nombre de la persona o institución";
+        });
+
+      formulario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        if (!formulario.reportValidity()) {
+          return;
+        }
+
+        const entrada = {
+          codigo: document.getElementById("codigo").value.trim(),
+          fecha: document.getElementById("fecha").value,
+          tipo: document.getElementById("tipoEntrada").value,
+          procedencia: document.getElementById("procedencia").value.trim(),
+          comprobante: document.getElementById("comprobante").value.trim(),
+          responsable: document.getElementById("responsable").value.trim(),
+          observaciones: document.getElementById("observaciones").value.trim(),
+
+          articulos: [...lista.children].map(articulo => ({
+            clasificacion:
+              articulo.querySelector(".clasificacion").value,
+
+            nombre:
+              articulo.querySelector(".nombreArticulo").value.trim(),
+
+            cantidad:
+              Number(articulo.querySelector(".cantidad").value),
+
+            unidad:
+              articulo.querySelector(".unidad").value,
+
+            descripcion:
+              articulo.querySelector(".descripcionArticulo").value.trim(),
+
+            valorUnitario:
+              Number(articulo.querySelector(".valorUnitario").value) || 0,
+
+            ubicacion:
+              articulo.querySelector(".ubicacion").value.trim()
+          }))
+        };
+
+        /*
+          Los datos están preparados en el objeto "entrada".
+          Aquí debe conectarse el sistema de almacenamiento
+          o el backend para guardar el registro permanentemente.
+        */
+
+        console.log("Entrada preparada:", entrada);
+
+        mostrarMensaje(
+          "Formulario validado. Esta versión todavía necesita conectarse " +
+          "al almacenamiento del sistema para guardar la entrada permanentemente."
+        );
+      });
+
+      formulario.addEventListener("reset", function () {
+        setTimeout(() => {
+          lista.innerHTML = "";
+          mensaje.classList.remove("visible");
+          agregarArticulo();
+        }, 0);
+      });
+
+      document.getElementById("fecha").value =
+        new Date().toISOString().slice(0, 10);
+
+      document.getElementById("codigo").value = "ENT-004";
+
+      agregarArticulo();
+    })();
+  </script>
+
 </body>
 
 </html>

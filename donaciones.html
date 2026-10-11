@@ -35,7 +35,7 @@
     <div class="main">
       <header class="topbar">
         <div>
-          <h1>Donaciones</h1>
+          <h1>Entradas</h1>
           <p>Sistema de Gestión Integral</p>
         </div>
         <div class="userbox"><span class="avatar">AL</span><span><b>Leomar Lara</b><small>Administrador</small></span>
@@ -44,10 +44,50 @@
       <main class="content">
         <div class="page-head">
           <div>
-            <h2>Donaciones</h2>
-            <p>Listar, registrar y editar donaciones.</p>
-          </div><a class="btn btn-primary" href="donacion-form.html">+ Registrar donación</a>
+            <h2>Entradas</h2>
+            <p>Listar, registrar y editar Entradas.</p>
+          </div><a class="btn btn-primary" href="donacion-form.html">+ Registrar entrada</a>
         </div>
+
+        <!-- Filtros y búsqueda de entradas -->
+        <div class="card card-filtros">
+          <div class="filters">
+
+            <label class="filtro-campo">
+              Buscar entrada
+              <input type="text" id="filtroTexto" placeholder="Código, donante, proveedor o responsable...">
+            </label>
+
+            <label class="filtro-campo">
+              Tipo de entrada
+              <select id="filtroTipo">
+                <option value="">Todos</option>
+                <option value="Donación">Donación</option>
+                <option value="Compra">Compra</option>
+                <option value="Transferencia">Transferencia o traslado</option>
+                <option value="Devolución">Devolución o reintegro</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </label>
+
+            <label class="filtro-campo">
+              Fecha específica
+              <input type="date" id="filtroFecha">
+            </label>
+
+            <div class="filtro-acciones">
+              <button class="btn btn-primary" type="button" id="btnFiltrar">
+                <img src="iconos/search.svg" alt="Lupa" class="icon-btn"> Buscar
+              </button>
+
+              <button class="btn btn-secondary" type="button" id="btnLimpiarFiltros">
+                Limpiar
+              </button>
+            </div>
+
+          </div>
+        </div>
+
         <div class="card">
           <table>
             <tr>
