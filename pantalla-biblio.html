@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Bibliotecario | CDI Los Mangos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar">
+            <div class="brand-local">
+                <img src="imagenes/logo.jpeg" alt="Logo del CDI Los Mangos" class="logo-local">
+
+                <div>
+                    <h2>CDI Los Mangos</h2>
+                    <p>Biblioteca Maestro Honorario Alfredo Alvino</p>
+                </div>
+            </div>
+
+            <nav class="menu-local">
+                <p class="menu-title">MENÚ DEL BIBLIOTECARIO</p>
+
+                <a href="bibliotecario.html" class="active">
+                    <img src="iconos/home2.svg" alt="">
+                    <span>Inicio</span>
+                </a>
+
+                <a href="libros.html">
+                    <img src="iconos/book2.svg" alt="">
+                    <span>Libros</span>
+                </a>
+
+                <a href="prestamos.html">
+                    <img src="iconos/refresh2.svg" alt="">
+                    <span>Préstamos</span>
+                </a>
+
+                <a href="lectores.html">
+                    <img src="iconos/users2.svg" alt="">
+                    <span>Lectores</span>
+                </a>
+
+                <a href="actividades.html">
+                    <img src="iconos/calendar-alt.svg" alt="">
+                    <span>Actividades</span>
+                </a>
+
+                <a href="reportes.html">
+                    <img src="iconos/calendar-month.svg" alt="">
+                    <span>Reportes</span>
+                </a>
+
+                <a href="perfil.html">
+                    <img src="iconos/user-circle2.svg" alt="">
+                    <span>Mi perfil</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="login.html">
+                    <img src="iconos/logout.svg" alt="">
+                    <span>Cerrar sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main">
+
+            <!-- BARRA SUPERIOR -->
+            <header class="topbar">
+                <div>
+                    <h1>Panel del bibliotecario</h1>
+                    <p>Gestión diaria de la biblioteca</p>
+                </div>
+
+                <a href="perfil.html" class="user-info">
+                    <img src="iconos/user-circle2.svg" alt="">
+                    <div>
+                        <strong id="nombreBibliotecario">Bibliotecario</strong>
+                        <small>Personal de biblioteca</small>
+                    </div>
+                </a>
+            </header>
+
+            <!-- PÁGINA -->
+            <section class="content">
+
+                <div class="page-heading">
+                    <div>
+                        <h2>¡Bienvenido al sistema!</h2>
+                        <p>
+                            Desde aquí puedes consultar los libros, administrar
+                            los préstamos y atender a los lectores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TARJETAS DE RESUMEN -->
+                <section class="grid-stats">
+
+                    <article class="stat">
+                        <div class="stat-icon">
+                            <img src="iconos/book2.svg" alt="">
+                        </div>
+                        <div>
+                            <p>Libros registrados</p>
+                            <h3 id="totalLibros">0</h3>
+                            <a href="libros.html">Consultar libros</a>
+                        </div>
+                    </article>
+
+                    <article class="stat">
+                        <div class="stat-icon">
+                            <img src="iconos/refresh2.svg" alt="">
+                        </div>
+                        <div>
+                            <p>Préstamos activos</p>
+                            <h3 id="prestamosActivos">0</h3>
+                            <a href="prestamos.html">Ver préstamos</a>
+                        </div>
+                    </article>
+
+                    <article class="stat">
+                        <div class="stat-icon">
+                            <img src="iconos/calendar-alt.svg" alt="">
+                        </div>
+                        <div>
+                            <p>Devoluciones pendientes</p>
+                            <h3 id="devolucionesPendientes">0</h3>
+                            <a href="prestamos.html">Revisar devoluciones</a>
+                        </div>
+                    </article>
+
+                    <article class="stat">
+                        <div class="stat-icon">
+                            <img src="iconos/users2.svg" alt="">
+                        </div>
+                        <div>
+                            <p>Lectores registrados</p>
+                            <h3 id="totalLectores">0</h3>
+                            <a href="lectores.html">Consultar lectores</a>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- ACCIONES RÁPIDAS -->
+                <section class="card quick-section">
+                    <div class="card-head">
+                        <div>
+                            <h2>Acciones rápidas</h2>
+                            <p>Accede a las operaciones más frecuentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="quick">
+                        <a href="libros.html" class="quick-action">
+                            <img src="iconos/book2.svg" alt="">
+                            <div>
+                                <strong>Consultar libros</strong>
+                                <p>Revisar el catálogo bibliográfico.</p>
+                            </div>
+                        </a>
+
+                        <a href="prestamos.html" class="quick-action">
+                            <img src="iconos/refresh2.svg" alt="">
+                            <div>
+                                <strong>Registrar préstamo</strong>
+                                <p>Gestionar la salida de un libro.</p>
+                            </div>
+                        </a>
+
+                        <a href="lectores.html" class="quick-action">
+                            <img src="iconos/users2.svg" alt="">
+                            <div>
+                                <strong>Gestionar lectores</strong>
+                                <p>Consultar la información de los lectores.</p>
+                            </div>
+                        </a>
+
+                        <a href="actividades.html" class="quick-action">
+                            <img src="iconos/calendar-alt.svg" alt="">
+                            <div>
+                                <strong>Actividades</strong>
+                                <p>Consultar actividades de la biblioteca.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- INFORMACIÓN DEL ROL -->
+                <section class="grid-2">
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h2>Funciones del bibliotecario</h2>
+                        </div>
+
+                        <ul class="function-list">
+                            <li>Consultar y organizar el catálogo de libros.</li>
+                            <li>Registrar y controlar los préstamos.</li>
+                            <li>Verificar las devoluciones pendientes.</li>
+                            <li>Consultar y atender a los lectores.</li>
+                            <li>Revisar los reportes de la biblioteca.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h2>Acceso del usuario</h2>
+                        </div>
+
+                        <div class="profile-summary">
+                            <img src="iconos/user-circle2.svg" alt="Perfil del usuario">
+
+                            <div>
+                                <h3 id="nombrePerfil">Bibliotecario</h3>
+                                <p>Rol: Bibliotecario</p>
+                                <p>Centro: CDI Los Mangos</p>
+                            </div>
+                        </div>
+
+                        <a href="perfil.html" class="btn-profile">
+                            Ver mi perfil
+                        </a>
+
+                        <p class="permission-note">
+                            Las opciones disponibles dependerán de los permisos
+                            asignados a la cuenta.
+                        </p>
+                    </article>
+
+                </section>
+
+            </section>
+
+            <!-- PIE DE PÁGINA -->
+            <footer class="footer">
+                <p>
+                    CDI Los Mangos · Biblioteca Maestro Honorario Alfredo Alvino
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        /*
+         * Nombre de usuario opcional.
+         * Si todavía no conectaste el inicio de sesión,
+         * se mostrará el nombre genérico "Bibliotecario".
+         */
+        const nombreGuardado = sessionStorage.getItem("nombreUsuario");
+
+        if (nombreGuardado) {
+            document.getElementById("nombreBibliotecario").textContent =
+                nombreGuardado;
+
+            document.getElementById("nombrePerfil").textContent =
+                nombreGuardado;
+        }
+    </script>
+</body>
+
+</html>
